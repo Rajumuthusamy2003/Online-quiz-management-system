@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <h1>AMS QUIZ</h1>
+    <style>
+        body {
+            font-family: cursive; 
+            background-color: hsl(273, 59%, 50%);
+        }
+        .container {
+            width: 40%;
+            margin: 190px auto;
+            padding: 26px;
+            background: linear-gradient(to right, #10c9c9, #bf0cd6, #68c215, #93e70b);
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        h1 {
+            text-align: center;
+            background: linear-gradient(to right, red, orange, yellow, green);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .form-group {
+            text-align: center;
+            margin-bottom: 40px;
+            margin-top: 40px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            color: darkred; 
+        }
+        input[type="email"], input[type="password"] {
+            width: 50%;
+            padding: 10px;
+            border: 3px solid #4e0b9b;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            width: 30%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background: linear-gradient(to right, #ff6600, #0bcfd6, #257744, #ff0000);
+            color: hsla(0, 0%, 0%, 0.541);
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            text-align: center;
+            margin: 0 auto;
+            display: block;
+            font-weight: bold;
+        }
+        input[type="submit"]:hover {
+            background: linear-gradient(to right, #1bc9c9, #cc3300, #5ccf19, #ff6600);
+            text-shadow: #7c11c4;
+            border: 3px solid #9a06be;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+        .image-container {
+            position: absolute;
+            top: -170px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 300px;
+            height: 150px;
+            border-radius: 20%;
+            overflow: hidden;
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="image-container">
+        <img src="https://altc.alt.ac.uk/blog/wp-content/uploads/sites/1112/2022/08/Blog-Cover-Guidlines-707x409.png" alt="Placeholder Image">
+    </div>
+    <h1>LOGIN</h1>
+    <div class="form">
+        <form id="loginForm" method="post" action="login.php">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" minlength="8" required>
+            </div>
+            <input type="submit" value="Login">
+        </form>
+    </div>
+</div>
+
+<script>
+    function validateForm() {
+        var password = document.getElementById("password").value;
+        var confirm_password = document.getElementById("confirm_password").value;
+        var password_error = document.getElementById("password_error");
+
+        if (password != confirm_password) {
+            password_error.textContent = "Passwords do not match";
+            return false;
+        } else {
+            password_error.textContent = "";
+            return true;
+        }
+    }
+</script>
+
+</body>
+</html>
